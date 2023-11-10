@@ -39,7 +39,7 @@ export default class LogoutButtonExtension extends Extension {
   logoutButton = null;
 
   enable() {
-    var dir = Extension.lookupByUUID('logoutbutton@mike10004.github.com').dir;
+    var dir = Extension.lookupByUUID('logoutbutton@lfarkas.org').dir;
     this.logoutButton = new St.Bin({
       style_class: 'panel-button',
       reactive: true,
