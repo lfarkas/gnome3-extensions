@@ -35,6 +35,10 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 const LOGOUT_MODE_NORMAL = 0;
 
+var baseGIcon;
+var hoverGIcon;
+var buttonIcon;
+
 export default class LogoutButtonExtension extends Extension {
   logoutButton = null;
 
@@ -49,9 +53,9 @@ export default class LogoutButtonExtension extends Extension {
       track_hover: true
     });
     // credit: http://stackoverflow.com/questions/20394840/how-to-set-a-png-file-in-a-gnome-shell-extension-for-st-icon
-    var baseGIcon = Gio.icon_new_for_string(dir.get_path() + "/icons/logout-base.svg");
-    var hoverGIcon = Gio.icon_new_for_string(dir.get_path() + "/icons/logout-hover.svg");
-    var buttonIcon = new St.Icon({
+    baseGIcon = Gio.icon_new_for_string(dir.get_path() + "/icons/logout-base.svg");
+    hoverGIcon = Gio.icon_new_for_string(dir.get_path() + "/icons/logout-hover.svg");
+    buttonIcon = new St.Icon({
       'gicon': Gio.icon_new_for_string(dir.get_path() + "/icons/logout-base.svg"),
       'style_class': 'system-status-icon'
     });
@@ -72,17 +76,17 @@ export default class LogoutButtonExtension extends Extension {
     Main.panel._rightBox.remove_actor(this.logoutButton);
   }
 
-  _SetButtonIcon(mode) {
-    if (mode === 'hover') {
-      buttonIcon.set_gicon(hoverGIcon);
-    } else {
-      buttonIcon.set_gicon(baseGIcon);
-    }
+}
+
+function _SetButtonIcon(mode) {
+  if (mode === 'hover') {
+    buttonIcon.set_gicon(hoverGIcon);
+  } else {
+    buttonIcon.set_gicon(baseGIcon);
   }
 }
 
 function _DoLogout() {
-  global.log("logoutbutton:_DoLogout");
   var sessionManager = new GnomeSession.SessionManager();
   sessionManager.LogoutRemote(LOGOUT_MODE_NORMAL);
 }
