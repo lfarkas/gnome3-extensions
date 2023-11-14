@@ -1,10 +1,10 @@
 {
-  "description": "Add logout button to the panel", 
-  "name": "Logout Button on Panel", 
+  "description": "Add logout button to the panel (fork of https://github.com/mike10004/gnome3-extensions)",
+  "name": "Logout Button on Panel",
   "shell-version": [
     "45"
-  ], 
-  "url": "https://github.com/lfarkas/gnome3-extensions", 
-  "uuid": "logoutbutton@lfarkas.org", 
+  ],
+  "url": "https://github.com/lfarkas/gnome3-extensions",
+  "uuid": "logoutbutton@lfarkas.org",
   "version": 45
 }

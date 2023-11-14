@@ -43,8 +43,6 @@ export default class LogoutButtonExtension extends Extension {
   logoutButton = null;
 
   enable() {
-    //var dir = Extension.lookupByUUID('logoutbutton@lfarkas.org').dir;
-    var dir = this.path;
     this.logoutButton = new St.Bin({
       style_class: 'panel-button',
       reactive: true,
@@ -53,11 +51,12 @@ export default class LogoutButtonExtension extends Extension {
       y_expand: false,
       track_hover: true
     });
+    var dir = this.path;
     // credit: http://stackoverflow.com/questions/20394840/how-to-set-a-png-file-in-a-gnome-shell-extension-for-st-icon
-    baseGIcon = Gio.icon_new_for_string(dir.get_path() + "/icons/logout-base.svg");
-    hoverGIcon = Gio.icon_new_for_string(dir.get_path() + "/icons/logout-hover.svg");
+    baseGIcon = Gio.icon_new_for_string(dir + "/icons/logout-base.svg");
+    hoverGIcon = Gio.icon_new_for_string(dir + "/icons/logout-hover.svg");
     buttonIcon = new St.Icon({
-      'gicon': Gio.icon_new_for_string(dir.get_path() + "/icons/logout-base.svg"),
+      'gicon': Gio.icon_new_for_string(dir + "/icons/logout-base.svg"),
       'style_class': 'system-status-icon'
     });
 
@@ -77,7 +76,6 @@ export default class LogoutButtonExtension extends Extension {
     Main.panel._rightBox.remove_actor(this.logoutButton);
     this.logoutButton = null;
   }
-
 }
 
 function _SetButtonIcon(mode) {
@@ -91,9 +89,4 @@ function _SetButtonIcon(mode) {
 function _DoLogout() {
   var sessionManager = new GnomeSession.SessionManager();
   sessionManager.LogoutRemote(LOGOUT_MODE_NORMAL);
-}
-
-// This function is called once when the extension is loaded, not enabled.
-function init() {
-  return new Extension();
 }

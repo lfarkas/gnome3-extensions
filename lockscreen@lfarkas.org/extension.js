@@ -57,7 +57,6 @@ export default class LockScreenButtonExtension extends Extension {
 		Main.panel._rightBox.remove_actor(this.lockScreenButton);
 		this.lockScreenButton = null;
 	}
-
 }
 
 function _LockScreenActivate() {
@@ -65,9 +64,4 @@ function _LockScreenActivate() {
 	/*	screenSaverProxy = new ScreenSaver.ScreenSaverProxy();
 		screenSaverProxy.LockRemote();*/
 	Main.screenShield.lock(true)
-}
-
-// This function is called once when the extension is loaded, not enabled.
-function init() {
-	return new Extension();
 }
