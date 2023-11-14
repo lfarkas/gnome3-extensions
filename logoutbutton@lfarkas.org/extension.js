@@ -43,7 +43,8 @@ export default class LogoutButtonExtension extends Extension {
   logoutButton = null;
 
   enable() {
-    var dir = Extension.lookupByUUID('logoutbutton@lfarkas.org').dir;
+    //var dir = Extension.lookupByUUID('logoutbutton@lfarkas.org').dir;
+    var dir = this.path;
     this.logoutButton = new St.Bin({
       style_class: 'panel-button',
       reactive: true,
@@ -74,6 +75,7 @@ export default class LogoutButtonExtension extends Extension {
 
   disable() {
     Main.panel._rightBox.remove_actor(this.logoutButton);
+    this.logoutButton = null;
   }
 
 }
