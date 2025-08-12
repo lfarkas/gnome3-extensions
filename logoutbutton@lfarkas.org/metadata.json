@@ -2,7 +2,10 @@
   "description": "Add logout button to the panel (fork of https://github.com/mike10004/gnome3-extensions)",
   "name": "Logout Button on Panel",
   "shell-version": [
-    "45"
+    "45",
+    "46",
+    "47",
+    "48"
   ],
   "url": "https://github.com/lfarkas/gnome3-extensions",
   "uuid": "logoutbutton@lfarkas.org",

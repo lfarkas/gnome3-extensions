@@ -2,7 +2,10 @@
   "description": "Add lock icon to the panel and lock the screen instead of using ctrl-alt-l (fork of https://github.com/sramkrishna/gnome3-extensions)",
   "name": "Lock Screen Button on Panel",
   "shell-version": [
-    "45"
+    "45",
+    "46",
+    "47",
+    "48"
   ],
   "url": "https://github.com/lfarkas/gnome3-extensions",
   "uuid": "lockscreen@lfarkas.org",
