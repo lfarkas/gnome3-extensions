@@ -73,7 +73,7 @@ export default class LogoutButtonExtension extends Extension {
   }
 
   disable() {
-    Main.panel._rightBox.remove_actor(this.logoutButton);
+    Main.panel._rightBox. remove_child(this.logoutButton);
     this.logoutButton = null;
   }
 }
