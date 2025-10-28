@@ -54,7 +54,7 @@ export default class LockScreenButtonExtension extends Extension {
 	}
 
 	disable() {
-		Main.panel._rightBox.remove_actor(this.lockScreenButton);
+		Main.panel._rightBox.remove_child(this.lockScreenButton);
 		this.lockScreenButton = null;
 	}
 }
