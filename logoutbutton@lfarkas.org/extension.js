@@ -55,7 +55,12 @@ export default class LogoutButtonExtension extends Extension {
     });
     this._indicator.add_child(this._buttonIcon);
 
-    this._indicator.connect('button-press-event', () => this._doLogout());
+    this._indicator.connect('button-press-event', (_actor, event) => {
+      if (event.get_button() !== 1)
+        return false;
+      this._doLogout();
+      return true;
+    });
     this._indicator.connect('enter-event', () => this._setButtonIcon('hover'));
     this._indicator.connect('leave-event', () => this._setButtonIcon('base'));
 

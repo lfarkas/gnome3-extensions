@@ -41,9 +41,12 @@ export default class LockScreenButtonExtension extends Extension {
 			style_class: 'system-status-icon'
 		});
 		this._indicator.add_child(icon);
-		this._indicator.connect('button-press-event', () => {
+		this._indicator.connect('button-press-event', (_actor, event) => {
+			if (event.get_button() !== 1)
+				return false;
 			Main.overview?.hide();
 			Main.screenShield?.lock(true);
+			return true;
 		});
 
 		Main.panel.addToStatusArea(this.uuid, this._indicator, 0, 'right');
